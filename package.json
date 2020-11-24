@@ -30,7 +30,7 @@
   "scripts": {
     "commit": "git-cz",
     "start": "node ./src/server.js",
-    "dev": "cross-env NODE_ENV=serverest-development nodemon ./src/server.js --nodoc",
+    "dev": "cross-env NODE_ENV=serverest-development nodemon -e json ./src/server.js --nodoc",
     "test:mutation": "stryker run ./test/stryker.conf.js",
     "test": "cross-env NODE_ENV=serverest-test nyc mocha --config test/.mocharc.js",
     "posttest": "nyc report --reporter=text-lcov > coverage.lcov",
