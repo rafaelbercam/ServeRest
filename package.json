@@ -75,6 +75,7 @@
     "@semantic-release/release-notes-generator": "^9.0.1",
     "@stryker-mutator/api": "^4.1.2",
     "@stryker-mutator/core": "^4.1.2",
+    "@stryker-mutator/mocha-runner": "^4.1.2",
     "chai": "^4.2.0",
     "commitizen": "^4.2.1",
     "cross-env": "^7.0.2",

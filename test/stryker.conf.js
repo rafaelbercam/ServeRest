@@ -18,4 +18,5 @@ module.exports = {
   commandRunner: {
     command: 'mocha --config test/.mocharc.js'
   }
+  // coverageAnalysis: 'off'
 }
