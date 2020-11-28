@@ -1,0 +1,43 @@
+name: Sanity Test
+
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+
+jobs:
+  test-sanity-docker:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Project checkout
+      uses: actions/checkout@v2
+    - name: Node.js Setup
+      uses: actions/setup-node@v2.1.1
+    - name: Installation of Node.js dependencies
+      run: npm ci
+    - name: Start Serverest with Docker
+      run: docker run -d -p 3000:3000 paulogoncalvesbh/serverest:latest
+      env:
+        NODE_ENV: serverest-test
+    - name: Sanity Test
+      run: npm run test:sanity
+
+  test-sanity-npm:
+
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Project checkout
+      uses: actions/checkout@v2
+    - name: Node.js Setup
+      uses: actions/setup-node@v2.1.1
+    - name: Installation of Node.js dependencies
+      run: npm ci
+    - name: Start Serverest with NPM
+      run: npx serverest@latest &
+      env:
+        NODE_ENV: serverest-test
+    - name: Sanity Test
+      run: npm run test:sanity
